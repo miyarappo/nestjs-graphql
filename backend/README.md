@@ -36,10 +36,14 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Running Prisma Studio
+## Prisma
 
 ```bash
-npx prisma studio
+# up prisma studio
+$ npx prisma studio
+
+# migrate
+$ npx prisma migrate dev --name addUser
 
 ```
 
