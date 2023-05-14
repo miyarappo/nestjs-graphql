@@ -5,17 +5,21 @@ import NotFound from './components/NotFound'
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import client from './apolloClient'
+import { ApolloProvider } from '@apollo/client'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/signIn" element={<GuestRoute children={<SignIn />} />} />
-        <Route path="/signUp" element={<GuestRoute children={<SignUp />} />} />
-        <Route path="/" element={<PrivateRoute children={<Main />} /> } />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/signIn" element={<GuestRoute children={<SignIn />} />} />
+          <Route path="/signUp" element={<GuestRoute children={<SignUp />} />} />
+          <Route path="/" element={<PrivateRoute children={<Main />} /> } />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </ApolloProvider>
   )
 }
 
