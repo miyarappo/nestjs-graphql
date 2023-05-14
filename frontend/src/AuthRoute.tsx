@@ -9,7 +9,7 @@ type Props = {
 export const PrivateRoute = ({children }: Props) => {
   const authInfo = useAuth()
 
-  if (!authInfo) {
+  if (!authInfo.checked) {
     return <div>Loading..</div>
   }
 
@@ -24,7 +24,7 @@ export const PrivateRoute = ({children }: Props) => {
 export const GuestRoute = ({children }: Props) => {
   const authInfo = useAuth()
 
-  if (!authInfo) {
+  if (!authInfo.checked) {
     return <div>Loading..</div>
   }
 
